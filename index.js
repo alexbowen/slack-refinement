@@ -4,7 +4,7 @@
 const { App } = require("@slack/bolt");
 
 const app = new App({
-  token: "xoxb-170869138993-2073304885155-f0yjD8xr9cQoTzP4nzTpKICU",
+  token: "xoxb-170869138993-2073304885155-EIyq2XSoOGFwIm90M2IfbGU7",
   signingSecret: "e3d3e25bfdd10975761b8ed0c37fc03e"
 });
 
@@ -13,7 +13,7 @@ app.command('/estimate', async ({ ack, payload, context }) => {
   // Acknowledge the command request
   ack();
 
-  console.log('estimate');
+  console.log('estimate command');
 
   try {
     const result = await app.client.chat.postMessage({
@@ -85,8 +85,6 @@ app.action('estimate', async ({ ack, body, context }) => {
 (async () => {
   // Start your app
   await app.start(process.env.PORT || 3000);
-
-  console.log(app)
 
   console.log('⚡️ Bolt app is running!');
 })();
