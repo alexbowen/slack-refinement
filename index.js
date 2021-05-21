@@ -4,8 +4,8 @@
 const { App } = require("@slack/bolt");
 
 const app = new App({
-  token: "xoxb-170869138993-2073304885155-EIyq2XSoOGFwIm90M2IfbGU7",
-  signingSecret: "e3d3e25bfdd10975761b8ed0c37fc03e"
+  token: process.env.BOT_TOKEN,
+  signingSecret: process.env.SIGNING_SECRET
 });
 
 // Listen for a slash command invocation
