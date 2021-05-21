@@ -8,73 +8,46 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET
 });
 
-// Listen for a slash command invocation
-app.command('refinement', async ({ ack, payload, context }) => {
-  // Acknowledge the command request
-  ack();
-
-  console.log('estimate command');
+app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
   try {
-    const result = await app.client.chat.postMessage({
-      token: context.botToken,
-      // Channel to send message to
-      channel: payload.channel_id,
-      // Include a button in the message (or whatever blocks you want!)
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: 'Go ahead. Click it.'
-          },
-          accessory: {
-            type: 'button',
+    // Acknowledge shortcut request
+    await ack();
+
+    // Call the views.open method using one of the built-in WebClients
+    const result = await client.views.open({
+      trigger_id: shortcut.trigger_id,
+      view: {
+        type: "modal",
+        title: {
+          type: "plain_text",
+          text: "My App"
+        },
+        close: {
+          type: "plain_text",
+          text: "Close"
+        },
+        blocks: [
+          {
+            type: "section",
             text: {
-              type: 'plain_text',
-              text: 'Click me!'
-            },
-            action_id: 'refinement'
+              type: "mrkdwn",
+              text: "About the simplest modal you could conceive of :smile:\n\nMaybe <https://api.slack.com/reference/block-kit/interactive-components|*make the modal interactive*> or <https://api.slack.com/surfaces/modals/using#modifying|*learn more advanced modal use cases*>."
+            }
+          },
+          {
+            type: "context",
+            elements: [
+              {
+                type: "mrkdwn",
+                text: "Psssst this modal was designed using <https://api.slack.com/tools/block-kit-builder|*Block Kit Builder*>"
+              }
+            ]
           }
-        }
-      ],
-      // Text in the notification
-      text: 'Message from Test App'
+        ]
+      }
     });
-    console.log(result);
-  }
-  catch (error) {
-    console.error(error);
-  }
-});
 
-// Listen for a button invocation with action_id `button_abc`
-// You must set up a Request URL under Interactive Components on your app configuration page
-app.action('refinement', async ({ ack, body, context }) => {
-  // Acknowledge the button request
-  ack();
-
-  console.log('estimate action');
-
-  try {
-    // Update the message
-    const result = await app.client.chat.update({
-      token: context.botToken,
-      // ts of message to update
-      ts: body.message.ts,
-      // Channel of message
-      channel: body.channel.id,
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: '*The button was clicked!*'
-          }
-        }
-      ],
-      text: 'Message from Test App'
-    });
     console.log(result);
   }
   catch (error) {
