@@ -50,7 +50,7 @@ app.command('/estimate', async ({ ack, payload, context }) => {
 
 // Listen for a button invocation with action_id `button_abc`
 // You must set up a Request URL under Interactive Components on your app configuration page
-app.action('estimate', async ({ ack, body, context }) => {
+app.action('refinement', async ({ ack, body, context }) => {
   // Acknowledge the button request
   ack();
 
