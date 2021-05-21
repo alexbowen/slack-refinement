@@ -10,9 +10,11 @@ const app = new App({
 
 app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
+  ack();
+
   try {
     // Acknowledge shortcut request
-    await ack();
+
 
     // Call the views.open method using one of the built-in WebClients
     const result = await client.views.open({
