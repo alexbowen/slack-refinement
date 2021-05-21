@@ -10,9 +10,11 @@ const app = new App({
 
 app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
+  
+
   try {
     // Acknowledge shortcut request
-    await ack();
+
 
     // Call the views.open method using one of the built-in WebClients
     const result = await client.views.open({
@@ -21,7 +23,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
         type: "modal",
         title: {
           type: "plain_text",
-          text: "My App"
+          text: "Ticket Estimation"
         },
         close: {
           type: "plain_text",
@@ -29,18 +31,61 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
         },
         blocks: [
           {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: "About the simplest modal you could conceive of :smile:\n\nMaybe <https://api.slack.com/reference/block-kit/interactive-components|*make the modal interactive*> or <https://api.slack.com/surfaces/modals/using#modifying|*learn more advanced modal use cases*>."
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "Please submit your estimation for ticket xyz"
             }
           },
           {
-            type: "context",
-            elements: [
+            "type": "divider"
+          },
+          {
+            "type": "actions",
+            "elements": [
               {
-                type: "mrkdwn",
-                text: "Psssst this modal was designed using <https://api.slack.com/tools/block-kit-builder|*Block Kit Builder*>"
+                "type": "radio_buttons",
+                "options": [
+                  {
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Small",
+                      "emoji": true
+                    },
+                    "value": "small"
+                  },
+                  {
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Medium",
+                      "emoji": true
+                    },
+                    "value": "medium"
+                  },
+                  {
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Large",
+                      "emoji": true
+                    },
+                    "value": "large"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "actions",
+            "elements": [
+              {
+                "type": "button",
+                "text": {
+                  "type": "plain_text",
+                  "text": "Submit estimation",
+                  "emoji": true
+                },
+                "value": "click_me_123",
+                "action_id": "actionId-0"
               }
             ]
           }
