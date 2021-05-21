@@ -9,7 +9,7 @@ const app = new App({
 });
 
 // Listen for a slash command invocation
-app.command('/estimate', async ({ ack, payload, context }) => {
+app.command('refinement', async ({ ack, payload, context }) => {
   // Acknowledge the command request
   ack();
 
@@ -34,7 +34,7 @@ app.command('/estimate', async ({ ack, payload, context }) => {
               type: 'plain_text',
               text: 'Click me!'
             },
-            action_id: 'button_abc'
+            action_id: 'refinement'
           }
         }
       ],
