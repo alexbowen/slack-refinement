@@ -14,6 +14,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
   try {
     // Acknowledge shortcut request
+    await ack();
 
 
     // Call the views.open method using one of the built-in WebClients
