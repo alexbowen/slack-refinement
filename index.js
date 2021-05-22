@@ -10,12 +10,9 @@ const app = new App({
 
 app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
-  
-
   try {
     // Acknowledge shortcut request
     await ack();
-
 
     // Call the views.open method using one of the built-in WebClients
     const result = await client.views.open({
@@ -86,24 +83,27 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                   "emoji": true
                 },
                 "value": "click_me_123",
-                "action_id": "actionId-0"
+                "action_id": "submit"
               }
             ]
           }
         ]
       }
     });
-
-    console.log(result);
   }
   catch (error) {
     console.error(error);
   }
 });
 
+app.action('submit', async ({ ack, say }) => {
+  // Acknowledge action request
+  await ack();
+  await say('Estimation submited 👍');
+});
+
 (async () => {
-  // Start your app
   await app.start(process.env.PORT || 3000);
 
-  console.log('⚡️ Bolt app is running!');
+  console.log('Ticket refinement app is running!');
 })();
