@@ -1,0 +1,46 @@
+{
+  "_metadata": {
+      "major_version": 1,
+      "minor_version": 1
+  },
+  "display_information": {
+      "name": "Ticket refinement"
+  },
+  "features": {
+      "app_home": {
+          "home_tab_enabled": false,
+          "messages_tab_enabled": true,
+          "messages_tab_read_only_enabled": true
+      },
+      "bot_user": {
+          "display_name": "refinement",
+          "always_online": true
+      },
+      "shortcuts": [
+          {
+              "name": "estimate",
+              "type": "message",
+              "callback_id": "refinement",
+              "description": "submit estimate"
+          }
+      ]
+  },
+  "oauth_config": {
+      "scopes": {
+          "bot": [
+              "commands",
+              "incoming-webhook",
+              "chat:write"
+          ]
+      }
+  },
+  "settings": {
+      "interactivity": {
+          "is_enabled": true,
+          "request_url": "https://ticket-refinement.herokuapp.com/slack/events"
+      },
+      "org_deploy_enabled": false,
+      "socket_mode_enabled": false,
+      "is_hosted": false
+  }
+}
