@@ -34,7 +34,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             "type": "section",
             "text": {
               "type": "mrkdwn",
-              "text": `Please submit your estimation\n${shortcut.message.text}`
+              "text": `Please submit your estimation:\n\n${shortcut.message.text}`
             }
           },
           {
@@ -113,6 +113,10 @@ app.action('submit', async ({ ack, payload, context }) => {
   catch (error) {
     console.error(error);
   }
+});
+
+app.message('estimation', async ({ message, say }) => {
+  console.log('message', message);
 });
 
 (async () => {
