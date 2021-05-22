@@ -34,7 +34,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             "type": "section",
             "text": {
               "type": "mrkdwn",
-              "text": `Please submit your estimation:\n\n${shortcut.message.text}`
+              "text": `You are submitting an estimation for:\n\n${shortcut.message.text}`
             }
           },
           {
@@ -49,24 +49,21 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                   {
                     "text": {
                       "type": "plain_text",
-                      "text": "Small",
-                      "emoji": true
+                      "text": "Small"
                     },
                     "value": "small"
                   },
                   {
                     "text": {
                       "type": "plain_text",
-                      "text": "Medium",
-                      "emoji": true
+                      "text": "Medium"
                     },
                     "value": "medium"
                   },
                   {
                     "text": {
                       "type": "plain_text",
-                      "text": "Large",
-                      "emoji": true
+                      "text": "Large"
                     },
                     "value": "large"
                   }
@@ -76,8 +73,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                 "type": "button",
                 "text": {
                   "type": "plain_text",
-                  "text": "Submit estimation",
-                  "emoji": true
+                  "text": "Submit your estimate"
                 },
                 "value": shortcut.user.id,
                 "action_id": "submit"
@@ -95,6 +91,8 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
 app.action('submit', async ({ ack, payload, context }) => {
   // Acknowledge action request
+
+  console.log('submit', payload, context);
   
   try {
 
@@ -115,9 +113,6 @@ app.action('submit', async ({ ack, payload, context }) => {
   }
 });
 
-app.message('estimation', async ({ message, say }) => {
-  console.log('message', message);
-});
 
 (async () => {
   await app.start(process.env.PORT || 3000);
