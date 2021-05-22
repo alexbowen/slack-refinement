@@ -34,7 +34,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             "type": "section",
             "text": {
               "type": "mrkdwn",
-              "text": "Please submit your estimation for ticket xyz"
+              "text": `Please submit your estimation\n${shortcut.message.text}`
             }
           },
           {
