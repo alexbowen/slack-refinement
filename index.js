@@ -71,12 +71,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                     "value": "large"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "type": "actions",
-            "elements": [
+              },
               {
                 "type": "button",
                 "text": {
@@ -84,7 +79,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                   "text": "Submit estimation",
                   "emoji": true
                 },
-                "value": "click_me_123",
+                "value": shortcut.user.id,
                 "action_id": "submit"
               }
             ]
