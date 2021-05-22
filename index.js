@@ -96,13 +96,13 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
   }
 });
 
-app.action('submit', async ({ ack, say }) => {
+app.action('submit', async ({ ack, payload, context }) => {
   // Acknowledge action request
   
   try {
 
     await ack();
-    
+
     await app.client.chat.postMessage({
       token: context.botToken,
       // Channel to send message to
