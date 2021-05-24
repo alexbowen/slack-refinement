@@ -6,7 +6,7 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET
 });
 
-app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message, action, ack, client, payload }) => {
+app.action({ 'action_id': 'refinement', type: 'interactive_message'}, async ({ message, action, ack, client, payload }) => {
 
   console.log('action', action, message, payload)
 
