@@ -29,56 +29,40 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
           type: "plain_text",
           text: "Close"
         },
-        blocks: [
+        "blocks": [
           {
             "type": "section",
             "text": {
-              "type": "mrkdwn",
-              "text": `You are submitting an estimation for:\n\n${shortcut.message.text}`
-            }
-          },
-          {
-            "type": "divider"
-          },
-          {
-            "type": "actions",
-            "elements": [
-              {
-                "type": "radio_buttons",
-                "options": [
-                  {
-                    "text": {
-                      "type": "plain_text",
-                      "text": "Small"
-                    },
-                    "value": "small"
-                  },
-                  {
-                    "text": {
-                      "type": "plain_text",
-                      "text": "Medium"
-                    },
-                    "value": "medium"
-                  },
-                  {
-                    "text": {
-                      "type": "plain_text",
-                      "text": "Large"
-                    },
-                    "value": "large"
-                  }
-                ]
-              },
-              {
-                "type": "button",
+              "type": "plain_text",
+              "text": "Check out these rad radio buttons"
+            },
+            "accessory": {
+              "type": "radio_buttons",
+              "action_id": "this_is_an_action_id",
+              "initial_option": {
+                "value": "A1",
                 "text": {
                   "type": "plain_text",
-                  "text": "Submit your estimate"
+                  "text": "Radio 1"
+                }
+              },
+              "options": [
+                {
+                  "value": "A1",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Radio 1"
+                  }
                 },
-                "value": shortcut.user.id,
-                "action_id": "submit"
-              }
-            ]
+                {
+                  "value": "A2",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Radio 2"
+                  }
+                }
+              ]
+            }
           }
         ]
       }
