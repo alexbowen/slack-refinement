@@ -35,13 +35,6 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
         },
         "blocks": [
           {
-            "type": "section",
-            "text": {
-              "type": "plain_text",
-              "text": `Please submit an estimation for:\n\n${shortcut.message.text}`
-            }
-          },
-          {
             "type": "input",
             "element": {
               "type": "radio_buttons",
@@ -67,11 +60,12 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                   },
                   "value": "L"
                 }
-              ]
+              ],
+              "action_id": "submit"
             },
             "label": {
               "type": "plain_text",
-              "text": "Label",
+              "text": `Please submit an estimation for:\n\n${shortcut.message.text}`,
               "emoji": true
             }
           }
