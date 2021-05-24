@@ -102,7 +102,7 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
   try {
     await ack();
 
-    console.log(payload, body);
+    console.log(payload, body, view);
 
     await client.chat.postMessage({
       token: client.token,
