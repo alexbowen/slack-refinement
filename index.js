@@ -102,7 +102,7 @@ app.view('estimation-submitted', async ({ ack, payload, body, view, client }) =>
     });
   }
   catch (error) {
-    console.error(error);
+    console.error(error, error.data.response_metadata);
   }
 });
 
