@@ -85,7 +85,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 app.view('estimation-submitted', async ({ ack, body, view, client }) => {
   // Acknowledge action request
 
-  console.log('estimation-submitted', body, view.state);
+  console.log('estimation-submitted', view.state.values.estimation);
   
   try {
 
