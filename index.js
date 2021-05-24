@@ -105,15 +105,15 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
 
     console.log(payload, body, view);
 
-    // await client.chat.postMessage({
-    //   token: client.token,
-    //   channel: "C022NHC2GUE",
-    //   text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text} of ${view.state.values.estimation.submit.selected_option.value}\n${view.state.values.additional.submit.value ? view.state.values.additional.submit.value : ''}`
-    // });
+    await client.chat.postMessage({
+      token: client.token,
+      channel: "C022NHC2GUE",
+      text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text} of ${view.state.values.estimation.submit.selected_option.value}\n${view.state.values.additional.submit.value ? view.state.values.additional.submit.value : ''}`
+    });
 
     await client.chat.postMessage({
       token: client.token,
-      channel: "C021ZNE8Q5S",
+      channel: "C020RU6LX1T",
       "thread_ts":  view.private_metadata,
       text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text}`
     });
