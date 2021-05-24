@@ -64,13 +64,18 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             }
           },
           {
-            "type": "button",
-            "text": {
-              "type": "plain_text",
-              "text": "Submit your estimate"
-            },
-            "value": shortcut.user.id,
-            "action_id": "submit"
+            "type": "actions",
+            "elements": [
+              {
+                "type": "button",
+                "text": {
+                  "type": "plain_text",
+                  "text": "Submit your estimate"
+                },
+                "value": shortcut.user.id,
+                "action_id": "submit"
+              }
+            ]
           }
         ]
       }
