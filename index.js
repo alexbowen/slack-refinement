@@ -68,6 +68,11 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                   "value": "L"
                 }
               ]
+            },
+            "label": {
+              "type": "plain_text",
+              "text": "Label",
+              "emoji": true
             }
           }
         ]
