@@ -74,7 +74,8 @@ app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message
             },
             "label": {
               "type": "plain_text",
-              "text": body.message.text
+              "text": body.message.text,
+              value: body.container.message_ts
             }
           },
           {
@@ -104,7 +105,7 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
   try {
     await ack();
 
-    console.log(payload, body, view, client);
+    console.log(payload, body, view);
 
     await client.chat.postMessage({
       token: client.token,
@@ -115,6 +116,7 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
     await client.chat.postMessage({
       token: client.token,
       channel: "C021ZNE8Q5S",
+      // "thread_ts": 
       text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text}`
     });
   }
