@@ -21,6 +21,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
       trigger_id: shortcut.trigger_id,
       view: {
         type: "modal",
+        "callback_id": "estimation-submitted",
         title: {
           type: "plain_text",
           text: "Ticket Estimation"
@@ -80,10 +81,11 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
   }
 });
 
-app.action('submit', async ({ ack, payload, context }) => {
+// app.action('submit', async ({ ack, payload, context }) => {
+app.view('estimation-submitted', async ({ ack, body, view, client }) => {
   // Acknowledge action request
 
-  console.log('submit', payload, context);
+  console.log('estimation-submitted', body, view, client);
   
   try {
 
