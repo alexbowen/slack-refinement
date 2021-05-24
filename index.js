@@ -101,6 +101,8 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
   try {
     await ack();
 
+    console.log(view.state.values);
+
     await client.chat.postMessage({
       token: client.token,
       channel: "C022N0AGA8M",
