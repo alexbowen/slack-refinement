@@ -14,7 +14,7 @@ app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message
     await ack();
 
     await client.views.open({
-      trigger_id: action.block_id,
+      trigger_id: body.trigger_id,
       view: {
         type: "modal",
         "callback_id": "submit",
@@ -74,7 +74,7 @@ app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message
             },
             "label": {
               "type": "plain_text",
-              "text": "jird id"
+              "text": body.message.text
             }
           },
           {
