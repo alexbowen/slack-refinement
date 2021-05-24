@@ -77,15 +77,16 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
           },
           {
             "type": "input",
-            "block_id": "additional",
+            "block_id": "estimation",
             "dispatch_action": false,
             "optional": true,
             "element": {
-              "type": "plain_text_input"
+              "type": "plain_text_input",
+              "action_id": "submit",
             },
             "label": {
               "type": "plain_text",
-              "text": "Additional information (optional)"
+              "text": "Additional information"
             }
           }
         ]
