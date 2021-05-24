@@ -84,7 +84,7 @@ app.view('estimation-submitted', async ({ ack, payload, body, view, client }) =>
   // Acknowledge action request
 
   console.log('estimation', view.state.values.estimation.submit.selected_option.value);
-  console.log('body', payload);
+  console.log('body', payload.channel_id);
   console.log('bot token', client.token);
   
   try {
