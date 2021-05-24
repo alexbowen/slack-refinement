@@ -77,7 +77,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
           },
           {
             "type": "input",
-            "block_id": "estimation",
+            "block_id": "additional",
             "dispatch_action": false,
             "optional": true,
             "element": {
