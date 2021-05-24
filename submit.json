@@ -1,0 +1,20 @@
+{
+  "text": "{{issue.key}}",
+    "blocks": [
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Click to submit your estimate"
+					},
+					"style": "primary",
+					"value": "{{issue.key}}",
+          "action_id": "refinement"
+				}
+			]
+		}
+    ]
+  }

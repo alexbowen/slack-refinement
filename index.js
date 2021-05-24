@@ -6,13 +6,14 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET
 });
 
-app.shortcut('refinement', async ({ shortcut, ack, client }) => {
+app.action('refinement', async ({ action, ack, client }) => {
+
+  console.log('action', action)
 
   try {
     await ack();
 
     await client.views.open({
-      trigger_id: shortcut.trigger_id,
       view: {
         type: "modal",
         "callback_id": "submit",
@@ -52,21 +53,21 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                     "type": "plain_text",
                     "text": "Small"
                   },
-                  "value": "S"
+                  "value": "Small"
                 },
                 {
                   "text": {
                     "type": "plain_text",
                     "text": "Medium"
                   },
-                  "value": "M"
+                  "value": "Medium"
                 },
                 {
                   "text": {
                     "type": "plain_text",
                     "text": "Large"
                   },
-                  "value": "L"
+                  "value": "Large"
                 }
               ]
             },
