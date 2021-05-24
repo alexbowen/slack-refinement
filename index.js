@@ -81,11 +81,6 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
   }
 });
 
-app.message(async ({ message, say }) => {
-  console.log('message')
-  await say(`Hello, <@${message.user}>`);
-});
-
 
 app.view('estimation-submitted', async ({ ack, payload, body, view, client }) => {
   // Acknowledge action request
@@ -101,13 +96,12 @@ app.view('estimation-submitted', async ({ ack, payload, body, view, client }) =>
     const result = await client.chat.postMessage({
       token: client.token,
       // Channel to send message to
-      channel: "C021ZNE8Q5S",
+      channel: "022N0AGA8M",
       // Include a button in the message (or whatever blocks you want!)
 
       // Text in the notification
-      text: 'Estimation submitted'
+      text: `Estimation submitted by ${body.user.name} of ${view.state.values.estimation.submit.selected_option.value}`
     });
-    console.log(result);
   }
   catch (error) {
     console.error(error, error.data.response_metadata);
