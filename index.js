@@ -80,11 +80,11 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 });
 
 // app.action('submit', async ({ ack, payload, context }) => {
-app.view('estimation-submitted', async ({ ack, context, body, view, client }) => {
+app.view('estimation-submitted', async ({ ack, payload, body, view, client }) => {
   // Acknowledge action request
 
   console.log('estimation', view.state.values.estimation.submit.selected_option.value);
-  console.log('body', body);
+  console.log('body', payload);
   console.log('bot token', client.token);
   
   try {
