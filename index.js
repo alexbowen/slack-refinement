@@ -34,35 +34,43 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             "type": "section",
             "text": {
               "type": "plain_text",
-              "text": "Check out these rad radio buttons"
+              "text": `Please submit an estimation for:\n\n${shortcut.message.text}`
             },
             "accessory": {
               "type": "radio_buttons",
-              "action_id": "submit",
               "options": [
                 {
                   "text": {
                     "type": "plain_text",
                     "text": "Small"
                   },
-                  "value": "small"
+                  "value": "S"
                 },
                 {
                   "text": {
                     "type": "plain_text",
                     "text": "Medium"
                   },
-                  "value": "medium"
+                  "value": "M"
                 },
                 {
                   "text": {
                     "type": "plain_text",
                     "text": "Large"
                   },
-                  "value": "large"
+                  "value": "L"
                 }
               ]
             }
+          },
+          {
+            "type": "button",
+            "text": {
+              "type": "plain_text",
+              "text": "Submit your estimate"
+            },
+            "value": shortcut.user.id,
+            "action_id": "submit"
           }
         ]
       }
