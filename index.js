@@ -6,9 +6,7 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET
 });
 
-app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message, action, ack, client, body, payload, block, block_actions }) => {
-
-  console.log('action', body, action, message, payload, block, block_actions)
+app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ ack, client, body }) => {
 
   try {
     await ack();
@@ -109,7 +107,7 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
 
     await client.chat.postMessage({
       token: client.token,
-      channel: "C022N0AGA8M",
+      channel: "C022NHC2GUE",
       text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text} of ${view.state.values.estimation.submit.selected_option.value}\n${view.state.values.additional.submit.value ? view.state.values.additional.submit.value : ''}`
     });
 
