@@ -79,6 +79,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             "type": "input",
             "block_id": "additional",
             "dispatch_action": false,
+            "optional": true,
             "element": {
               "type": "plain_text_input"
             },
