@@ -39,10 +39,12 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             "text": {
               "type": "plain_text",
               "text": `Please submit an estimation for:\n\n${shortcut.message.text}`
-            },
-            "accessory": {
+            }
+          },
+          {
+            "type": "input",
+            "element": {
               "type": "radio_buttons",
-              "action_id": "submit",
               "options": [
                 {
                   "text": {
