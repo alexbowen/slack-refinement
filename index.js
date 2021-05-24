@@ -113,7 +113,7 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
 
     await client.chat.postMessage({
       token: client.token,
-      channel: "C021ZNE8Q5S",
+      channel: "C020RU6LX1T",
       "thread_ts":  view.private_metadata,
       text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text}`
     });
