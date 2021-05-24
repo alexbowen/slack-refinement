@@ -91,7 +91,7 @@ app.view('estimation-submitted', async ({ ack, payload, body, view, client }) =>
 
     await ack();
 
-    await app.client.chat.postMessage({
+    await client.chat.postMessage({
       token: client.token,
       // Channel to send message to
       channel: payload.channel_id,
