@@ -18,6 +18,7 @@ app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message
       view: {
         type: "modal",
         "callback_id": "submit",
+        "private_metadata": body.container.message_ts,
         title: {
           type: "plain_text",
           text: "Ticket Estimation"
@@ -74,8 +75,7 @@ app.action({ 'action_id': 'refinement', type: 'block_actions'}, async ({ message
             },
             "label": {
               "type": "plain_text",
-              "text": body.message.text,
-              value: body.container.message_ts
+              "text": body.message.text
             }
           },
           {
