@@ -10,8 +10,6 @@ const app = new App({
 
 app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
-  console.log('shortcut', shortcut);
-
   try {
     // Acknowledge shortcut request
     await ack();
@@ -85,7 +83,9 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 app.view('estimation-submitted', async ({ ack, body, view, client }) => {
   // Acknowledge action request
 
-  console.log('estimation-submitted', view.state.values.estimation);
+  console.log('estimation', view.state.values.estimation.submit.selected_option.value);
+  console.log('view', view);
+  console.log('client', client);
   
   try {
 
