@@ -36,7 +36,10 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
         "blocks": [
           {
             "type": "input",
+            "block_id": "estimation",
+            "dispatch_action": false,
             "element": {
+              "action_id": "submit",
               "type": "radio_buttons",
               "options": [
                 {
@@ -60,8 +63,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                   },
                   "value": "L"
                 }
-              ],
-              "action_id": "submit"
+              ]
             },
             "label": {
               "type": "plain_text",
