@@ -73,7 +73,7 @@ app.action('refinement', async ({ action, ack, client }) => {
             },
             "label": {
               "type": "plain_text",
-              "text": shortcut.message.text
+              "text": "jird id"
             }
           },
           {
