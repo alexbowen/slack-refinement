@@ -14,7 +14,7 @@ app.action('refinement', async ({ action, ack, client }) => {
     await ack();
 
     await client.views.open({
-      trigger_id: action.trigger_id,
+      trigger_id: action.block_id,
       view: {
         type: "modal",
         "callback_id": "submit",
