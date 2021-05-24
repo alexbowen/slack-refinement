@@ -84,15 +84,15 @@ app.view('estimation-submitted', async ({ ack, body, view, client }) => {
   // Acknowledge action request
 
   console.log('estimation', view.state.values.estimation.submit.selected_option.value);
-  console.log('view', view);
-  console.log('client', client);
+  console.log('body', body);
+  console.log('bot token', client.token);
   
   try {
 
     await ack();
 
     await app.client.chat.postMessage({
-      token: context.botToken,
+      token: client.token,
       // Channel to send message to
       channel: payload.channel_id,
       // Include a button in the message (or whatever blocks you want!)
