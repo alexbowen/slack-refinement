@@ -6,9 +6,9 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET
 });
 
-app.action('refinement', async ({ message, action, ack, client }) => {
+app.action('refinement', async ({ message, action, ack, client, payload }) => {
 
-  console.log('action', action, message, arguments)
+  console.log('action', action, message, payload)
 
   try {
     await ack();
