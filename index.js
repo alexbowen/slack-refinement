@@ -34,6 +34,17 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
         },
         "blocks": [
           {
+            "type": "header",
+            "text": {
+              "type": "plain_text",
+              "text": "Please select your estimate and submit",
+              "emoji": true
+            }
+          },
+          {
+            "type": "divider"
+          },
+          {
             "type": "input",
             "block_id": "estimation",
             "dispatch_action": false,
@@ -66,7 +77,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             },
             "label": {
               "type": "plain_text",
-              "text": `Please submit an estimation for:\n\n${shortcut.message.text}`,
+              "text": shortcut.message.text,
               "emoji": true
             }
           }
