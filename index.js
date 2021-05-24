@@ -42,6 +42,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             },
             "accessory": {
               "type": "radio_buttons",
+              "action_id": "submit",
               "options": [
                 {
                   "text": {
