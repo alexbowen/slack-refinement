@@ -29,6 +29,10 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
           type: "plain_text",
           text: "Close"
         },
+        "submit": {
+          "type": "plain_text",
+          "text": "Submit"
+        },
         "blocks": [
           {
             "type": "section",
@@ -62,20 +66,6 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
                 }
               ]
             }
-          },
-          {
-            "type": "actions",
-            "elements": [
-              {
-                "type": "button",
-                "text": {
-                  "type": "plain_text",
-                  "text": "Submit your estimate"
-                },
-                "value": shortcut.user.id,
-                "action_id": "submit"
-              }
-            ]
           }
         ]
       }
