@@ -1,5 +1,3 @@
-// This example shows how to listen to a button click
-// It uses slash commands and actions
 // Require the Bolt package (github.com/slackapi/bolt)
 const { App } = require("@slack/bolt");
 
@@ -11,15 +9,13 @@ const app = new App({
 app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
   try {
-    // Acknowledge shortcut request
     await ack();
 
-    // Call the views.open method using one of the built-in WebClients
-    const result = await client.views.open({
+    await client.views.open({
       trigger_id: shortcut.trigger_id,
       view: {
         type: "modal",
-        "callback_id": "estimation-submitted",
+        "callback_id": "submit",
         title: {
           type: "plain_text",
           text: "Ticket Estimation"
@@ -77,8 +73,7 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
             },
             "label": {
               "type": "plain_text",
-              "text": shortcut.message.text,
-              "emoji": true
+              "text": shortcut.message.text
             }
           }
         ]
@@ -90,13 +85,8 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
   }
 });
 
-app.view('estimation-submitted', async ({ ack, payload, body, view, client }) => {
-  // Acknowledge action request
-
-  console.log('estimation', payload);
-  
+app.view('submit', async ({ ack, payload, body, view, client }) => {
   try {
-
     await ack();
 
     await client.chat.postMessage({
