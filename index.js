@@ -79,19 +79,24 @@ app.shortcut('refinement', async ({ shortcut, ack, client }) => {
   }
 });
 
-// app.action('submit', async ({ ack, payload, context }) => {
+app.message(async ({ message, say }) => {
+  console.log('message')
+  await say(`Hello, <@${message.user}>`);
+});
+
+
 app.view('estimation-submitted', async ({ ack, payload, body, view, client }) => {
   // Acknowledge action request
 
   console.log('estimation', view.state.values.estimation.submit.selected_option.value);
-  console.log('body', payload.channel_id);
+  console.log('body', body, body.channel);
   console.log('bot token', client.token);
   
   try {
 
     await ack();
 
-    await client.chat.postMessage({
+    const result = await client.chat.postMessage({
       token: client.token,
       // Channel to send message to
       channel: payload.channel_id,
@@ -100,6 +105,7 @@ app.view('estimation-submitted', async ({ ack, payload, body, view, client }) =>
       // Text in the notification
       text: 'Estimation submitted'
     });
+    console.log(result);
   }
   catch (error) {
     console.error(error, error.data.response_metadata);
