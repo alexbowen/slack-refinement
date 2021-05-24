@@ -101,7 +101,7 @@ app.view('estimation-submitted', async ({ ack, payload, body, view, client }) =>
     const result = await client.chat.postMessage({
       token: client.token,
       // Channel to send message to
-      channel: payload.channel_id,
+      channel: "C021ZNE8Q5S",
       // Include a button in the message (or whatever blocks you want!)
 
       // Text in the notification
