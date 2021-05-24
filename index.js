@@ -10,6 +10,8 @@ const app = new App({
 
 app.shortcut('refinement', async ({ shortcut, ack, client }) => {
 
+  console.log('shortcut', shortcut);
+
   try {
     // Acknowledge shortcut request
     await ack();
