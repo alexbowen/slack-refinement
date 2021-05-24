@@ -107,7 +107,7 @@ app.view('submit', async ({ ack, payload, body, view, client }) => {
     await client.chat.postMessage({
       token: client.token,
       channel: "C022N0AGA8M",
-      text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text} of ${view.state.values.estimation.submit.selected_option.value}`
+      text: `Estimation submitted by ${body.user.name} for ${payload.blocks[2].label.text} of ${view.state.values.estimation.submit.selected_option.value} ${view.state.values.additional.submit.value ? view.state.values.additional.submit.value : ''}`
     });
 
     await client.chat.postMessage({
