@@ -6,6 +6,19 @@ const app = new App({
   signingSecret: process.env.SIGNING_SECRET
 });
 
+app.event('block_action', async ({ event, client }) => {
+
+  console.log('event', event)
+  try {
+    // Call chat.postMessage with the built-in client
+
+
+  }
+  catch (error) {
+    console.error(error);
+  }
+});
+
 app.action('refinement', async ({ message, action, ack, client, payload }) => {
 
   console.log('action', action, message, payload)
